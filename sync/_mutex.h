@@ -1,14 +1,14 @@
-#ifndef WEBSERVER_MUTEX_H
-#define WEBSERVER_MUTEX_H
+#ifndef WEBSERVER__MUTEX_H
+#define WEBSERVER__MUTEX_H
 
 #include <exception>
 #include <pthread.h>
 #include <semaphore.h>
 
-class mutex {
+class _mutex {
 public:
-    mutex();
-    ~mutex();
+    _mutex();
+    ~_mutex();
 
     bool lock();
     bool unlock();
@@ -19,4 +19,4 @@ private:
 };
 
 
-#endif //WEBSERVER_MUTEX_H
+#endif //WEBSERVER__MUTEX_H
