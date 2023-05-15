@@ -15,7 +15,12 @@ file(GLOB log_srcs log/*.cpp)
 add_library(log SHARED ${log_srcs})
 target_link_libraries(log sync)
 
+include_directories(connpool)
+file(GLOB connpool_srcs connpool/*.cpp)
+add_library(connpool SHARED ${connpool_srcs})
+target_link_libraries(connpool sync log)
+
 
 add_executable(webserver main.cpp)
 
-target_link_libraries(webserver sync)
+target_link_libraries(webserver sync log connpool pthread mysqlclient)
